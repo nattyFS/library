@@ -7,7 +7,7 @@
     $requestData = $_REQUEST;
 
     // Verificação de campo obrigatórios do formulário
-    if(empty($requestData['NOME'])){
+    if(empty($requestData['nome'])){
         // Caso a variável venha vazia eu gero um retorno de erro do mesmo
         $dados = array(
             "tipo" => 'error',
@@ -42,7 +42,7 @@
                 $stmt = $pdo->prepare('UPDATE eixo SET nome = :nome WHERE ideixo = :id');
                 $stmt->execute(array(
                     ':id' => $IDEIXO,
-                    ':nome' => utf8_decode($requestData['NOME'])
+                    ':nome' => utf8_decode($requestData['nome'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
