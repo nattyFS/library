@@ -1,15 +1,15 @@
 $(document).ready(function() {
 
-    $('#eixo').on('click', 'button.btn-view', function(e) {
+    $('#eixo').on('click', 'button.btn-edit', function(e) {
 
         e.preventDefault()
 
-        // Alterar as informações do modal 
+        
 
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Visualização de eixo tecnológico')
+        $('.modal-title').append('Edição de eixo tecnológico')
 
         let ideixo = `ideixo=${$(this).attr('id')}`
 
@@ -23,15 +23,16 @@ $(document).ready(function() {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/eixo/view/form-eixo.html', function() {
                         $('#nome').val(dado.dados.nome)
-                        $('#nome').attr('readonly', 'true')
+                        $('#ideixo').val(dado.dados.ideixo)
                     })
-                    $('.btn-save').hide()
+                    $('.btn-save').show()
+                    $('.btn-save').removeAttr('data-operation')
                     $('#modal-eixo').modal('show')
                 } else {
-                    Swal.fire({ // Inicialização do SweetAlert
-                        title: 'Library', // Título da janela SweetAler
-                        text: dado.mensagem, // Mensagem retornada do microserviço
-                        type: dado.tipo, // Tipo de retorno [success, info ou error]
+                    Swal.fire({ 
+                        title: 'Library', 
+                        text: dado.mensagem, 
+                        type: dado.tipo, // Tipo de retorno success, info ou error
                         confirmButtonText: 'OK'
                     })
                 }
