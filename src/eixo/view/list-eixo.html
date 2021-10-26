@@ -14,6 +14,20 @@
                 <i class="fas fa-plus-circle"></i> Adicionar
              </button>
          </div>
+         <form id="form-eixo" enctype="multipart/form-data">
+         <div class="form-group row">
+            <div class="col-10">
+                <input type="text" name="eixo" id="ideixo" class="form-control" placeholder="Digite o nome do eixo...">
+            </div>
+            <div class="col-2">
+                <button class="btn btn-primary btn-block btn-find"><i class="fas fa-search"></i> Buscar</button>
+            </div>
+            
+        </div>
+        </form>
+        <ul class="resultado"  >
+                
+        </ul>
      </div>
 </div>
 <div class="card-body">
@@ -53,7 +67,7 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="src/eixo/controller/find-eixo.js"></script>
 <script src="src/eixo/controller/new-eixo.js"></script>
 <script src="src/eixo/controller/save-eixo.js"></script>
 <script src="src/eixo/controller/list-eixo.js"></script>

@@ -7,9 +7,11 @@
     //Obter o request vindo do datatable
     $requestData = $_REQUEST;
 
+    //Obter as colunas vindas do resquest
     $colunas = $requestData['columns'];
 
-    $sql = "SELECT idcurso, nome FROM curso WHERE 1=1 ";
+    //Preparar o comando sql para obter os dados da categoria
+    $sql = "SELECT idusuario, nome FROM usuario WHERE 1=1 ";
 
     //Obter o total de registros cadastrados
     $resultado = $pdo->query($sql);
@@ -18,8 +20,9 @@
     //Verificando se há filtro determinado
     $filtro = $requestData['search']['value'];
     if( !empty( $filtro ) ){
-        //Aqui eu devo determinar quais colunas farão parte do filtro
-        $sql .= " AND (idcurso LIKE '$filtro%' ";
+        //Montar a expressão lógica que irá compor os filtros
+        //Aqui você deverá determinar quais colunas farão parte do filtro
+        $sql .= " AND (idusuario LIKE '$filtro%' ";
         $sql .= " OR nome LIKE '$filtro%') ";
     }
     
@@ -53,4 +56,5 @@
 
 
 
+    //Retorna o objeto json para o DataTable
     echo json_encode($json_data);

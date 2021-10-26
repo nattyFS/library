@@ -19,7 +19,7 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO curso (nome, eixo_ideixo) VALUES (:a, b)');
+                $stmt = $pdo->prepare('INSERT INTO curso (nome, eixo_ideixo) VALUES (:a, :b)');
                 $stmt->execute(array(
                     ':a' => utf8_decode($requestData['nome']),
                     ':b' => $requestData['eixo_ideixo']
